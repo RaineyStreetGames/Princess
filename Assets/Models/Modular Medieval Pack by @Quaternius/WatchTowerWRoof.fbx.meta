@@ -3,7 +3,17 @@ guid: 5d8e2608cb05a491f8391f170a232d00
 ModelImporter:
   serializedVersion: 25
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Celing
+    second: {fileID: 2100000, guid: c79d0d15fef3f468cadced378066bb5c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: LightWood
+    second: {fileID: 2100000, guid: 01f0529235a7a43a4934f0f0abc7e961, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

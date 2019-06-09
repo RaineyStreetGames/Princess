@@ -3,7 +3,27 @@ guid: 2f4a96b96a1df4a4da7003a3424f2786
 ModelImporter:
   serializedVersion: 25
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Black
+    second: {fileID: 2100000, guid: 5ae245068ecc845a9bf1cd98c145f2fb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Celing
+    second: {fileID: 2100000, guid: c79d0d15fef3f468cadced378066bb5c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DarkRock
+    second: {fileID: 2100000, guid: 7396cff59ab22424680afc2778188f1f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: LightRock
+    second: {fileID: 2100000, guid: d4701c5b82c2e409193cfca49380756d, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
