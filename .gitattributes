@@ -1,12 +1,2 @@
-Temp/
-Library/
-Obj/
-Builds/
-Logs/
- 
-*.csproj
-*.unityproj
-*.sln
-*.user
-*.userprefs
-*.DS_store
+# Auto detect text files and perform LF normalization
+* text=auto
