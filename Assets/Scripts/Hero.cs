@@ -1,57 +1,50 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Hero : MonoBehaviour
 {
-
-    public float speed = 5.0f;
-    // public Animator animator;
-
     private Animator animator;
-    private Vector3? targetPosition;
+    private NavMeshAgent agent;
 
     // Start is called before the first frame update
     void Start()
     {
         animator = gameObject.GetComponent<Animator>();
+        agent = gameObject.GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (targetPosition.HasValue)
+
+        if (agent.remainingDistance <= agent.stoppingDistance)
         {
-
-            // Debug.Log("has value");
-            // rotate towards the targetPosition
-
-
-            // move towards the targetPosition
-            transform.position = Vector3.MoveTowards(transform.position, targetPosition.Value, speed * Time.deltaTime);
-
-            if (transform.localPosition == targetPosition)
-            {
-                targetPosition = null;
-                animator.SetTrigger("Stop");
-            }
+            animator.SetBool("Run", false);
         }
 
         // Mouse Drag Event
-        // if (Input.GetMouseButton(0)) {
-        // }
-
-        // Mouse Up Event
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButton(0))
         {
             RaycastHit hit;
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit) && hit.transform.tag == "Terrain")
             {
-                targetPosition = hit.point;
+                agent.SetDestination(hit.point);
                 transform.forward = hit.point - transform.position;
-                animator.SetTrigger("Run");
+                animator.SetBool("Run", true);
             }
-            Debug.Log($"Clicked {hit.transform.name} @ {hit.point}");
+            // Debug.Log($"Drag {hit.transform.name} @ {hit.point}");
         }
+
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            animator.SetTrigger("Jump");
+        }
+
+        // Mouse Up Event
+        // if (Input.GetMouseButtonUp(0))
+        // {
+        // }
     }
 }
