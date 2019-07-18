@@ -4,6 +4,7 @@ Obj/
 Builds/
 Logs/
  
+.vscode/
 *.csproj
 *.unityproj
 *.sln
