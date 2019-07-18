@@ -84,6 +84,16 @@ public class Hero : MonoBehaviour
             animator.SetTrigger("Jump");
         }
 
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            animator.SetTrigger("Roll");
+        }
+
+        if (Input.GetKeyUp(KeyCode.C))
+        {
+            animator.SetTrigger("Attack");
+        }
+
         // Mouse Up Event
         // if (Input.GetMouseButtonUp(0))
         // {
