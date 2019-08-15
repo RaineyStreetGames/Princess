@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6510918045573233421}
   m_Layer: 0
   m_Name: wall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49,6 +49,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Brick (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: b8fb3cde855634bbe8d4df2eea87f19a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: b8fb3cde855634bbe8d4df2eea87f19a,
         type: 3}
@@ -120,6 +125,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.9999998
       objectReference: {fileID: 0}
+    - target: {fileID: -6860895033569716450, guid: b8fb3cde855634bbe8d4df2eea87f19a,
+        type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6860895033569716450, guid: b8fb3cde855634bbe8d4df2eea87f19a,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8fb3cde855634bbe8d4df2eea87f19a, type: 3}
 --- !u!4 &5930005076115017357 stripped
@@ -139,6 +154,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Brick (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: b8fb3cde855634bbe8d4df2eea87f19a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: b8fb3cde855634bbe8d4df2eea87f19a,
         type: 3}
@@ -210,6 +230,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -6860895033569716450, guid: b8fb3cde855634bbe8d4df2eea87f19a,
+        type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6860895033569716450, guid: b8fb3cde855634bbe8d4df2eea87f19a,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8fb3cde855634bbe8d4df2eea87f19a, type: 3}
 --- !u!4 &7178015583746612916 stripped
@@ -229,6 +259,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Brick
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: b8fb3cde855634bbe8d4df2eea87f19a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: b8fb3cde855634bbe8d4df2eea87f19a,
         type: 3}
@@ -300,6 +335,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.9999998
       objectReference: {fileID: 0}
+    - target: {fileID: -6860895033569716450, guid: b8fb3cde855634bbe8d4df2eea87f19a,
+        type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6860895033569716450, guid: b8fb3cde855634bbe8d4df2eea87f19a,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8fb3cde855634bbe8d4df2eea87f19a, type: 3}
 --- !u!4 &9126150114015002825 stripped
@@ -319,6 +364,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Brick (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: b8fb3cde855634bbe8d4df2eea87f19a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: b8fb3cde855634bbe8d4df2eea87f19a,
         type: 3}
@@ -390,6 +440,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.9999998
       objectReference: {fileID: 0}
+    - target: {fileID: -6860895033569716450, guid: b8fb3cde855634bbe8d4df2eea87f19a,
+        type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6860895033569716450, guid: b8fb3cde855634bbe8d4df2eea87f19a,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8fb3cde855634bbe8d4df2eea87f19a, type: 3}
 --- !u!4 &602579446809254740 stripped
@@ -409,6 +469,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Wall_Modular (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: f855ae57533ae46619561070341be3e5,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: f855ae57533ae46619561070341be3e5,
         type: 3}
@@ -480,6 +545,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -6860895033569716450, guid: f855ae57533ae46619561070341be3e5,
+        type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6860895033569716450, guid: f855ae57533ae46619561070341be3e5,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f855ae57533ae46619561070341be3e5, type: 3}
 --- !u!4 &1383027818209542055 stripped
@@ -499,6 +574,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Wall_Modular (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: f855ae57533ae46619561070341be3e5,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: f855ae57533ae46619561070341be3e5,
         type: 3}
@@ -570,6 +650,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -6860895033569716450, guid: f855ae57533ae46619561070341be3e5,
+        type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6860895033569716450, guid: f855ae57533ae46619561070341be3e5,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f855ae57533ae46619561070341be3e5, type: 3}
 --- !u!4 &1383027818298545021 stripped
@@ -589,6 +679,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Wall_Modular (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: f855ae57533ae46619561070341be3e5,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: f855ae57533ae46619561070341be3e5,
         type: 3}
@@ -660,6 +755,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -6860895033569716450, guid: f855ae57533ae46619561070341be3e5,
+        type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6860895033569716450, guid: f855ae57533ae46619561070341be3e5,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f855ae57533ae46619561070341be3e5, type: 3}
 --- !u!4 &1383027819233610166 stripped
@@ -679,6 +784,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Wall_Modular (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: f855ae57533ae46619561070341be3e5,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: f855ae57533ae46619561070341be3e5,
         type: 3}
@@ -749,6 +859,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6860895033569716450, guid: f855ae57533ae46619561070341be3e5,
+        type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6860895033569716450, guid: f855ae57533ae46619561070341be3e5,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f855ae57533ae46619561070341be3e5, type: 3}

@@ -1,8 +1,8 @@
-﻿using System.Collections;
+﻿using System.Linq;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-
 
 public enum HeroState
 {
@@ -60,23 +60,25 @@ public class Hero : MonoBehaviour
 
     protected void ActiveUpdate()
     {
-        if (agent.remainingDistance <= agent.stoppingDistance)
-        {
-            animator.SetBool("Run", false);
-        }
-
         // Mouse Drag Event
         if (Input.GetMouseButton(0))
         {
-            RaycastHit hit;
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit) && hit.transform.tag == "Terrain")
+            RaycastHit? hit = Physics.RaycastAll(Camera.main.ScreenPointToRay(Input.mousePosition), 100.0f).FirstOrDefault(x => x.transform.tag == "Terrain");
+            if (hit.HasValue && hit.Value.point != Vector3.zero)
             {
-                agent.SetDestination(hit.point);
-                agent.speed = runSpeed;
-                transform.forward = hit.point - transform.position;
-                animator.SetBool("Run", true);
+                NavMeshHit navHit;
+                if (NavMesh.SamplePosition(hit.Value.point, out navHit, 1.0f, NavMesh.AllAreas))
+                {
+                    agent.SetDestination(navHit.position);
+                    agent.speed = runSpeed;
+                    transform.forward = navHit.position - transform.position;
+                    animator.SetBool("Run", true);
+                }
             }
-            // Debug.Log($"Drag {hit.transform.name} @ {hit.point}");
+        }
+        else if (agent.remainingDistance <= agent.stoppingDistance)
+        {
+            animator.SetBool("Run", false);
         }
 
         if (Input.GetKeyUp(KeyCode.Space))
@@ -93,11 +95,6 @@ public class Hero : MonoBehaviour
         {
             animator.SetTrigger("Attack");
         }
-
-        // Mouse Up Event
-        // if (Input.GetMouseButtonUp(0))
-        // {
-        // }
     }
 
     protected void InactiveUpdate()
