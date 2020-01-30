@@ -21,7 +21,7 @@ public class CameraMain : MonoBehaviour
 
     void LateUpdate()
     {
-        Vector3 desiredCameraPos = target.transform.position + (offset * maxDistance);
+        Vector3 desiredCameraPos = target.transform.position + (offset * maxDistance * 2);
         RaycastHit hit;
         if (Physics.Linecast(target.transform.position, desiredCameraPos, out hit))
         {

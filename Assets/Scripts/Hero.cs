@@ -13,6 +13,7 @@ public enum HeroState
 public class Hero : MonoBehaviour
 {
     public HeroState state = HeroState.Inactive;
+    public Canvas canvas;
     public float wanderingMax = 10.0f;
     public float runSpeed = 10.0f;
     public float walkSpeed = 1.5f;
@@ -23,6 +24,7 @@ public class Hero : MonoBehaviour
     private Vector3 origin;
     private Animator animator;
     private NavMeshAgent agent;
+    private Dictionary<string, GameObject> uiComponents;
 
     public void Reset()
     {
@@ -32,6 +34,7 @@ public class Hero : MonoBehaviour
         agent.SetDestination(transform.position);
         animator.SetBool("Run", false);
         animator.SetBool("Walk", false);
+        uiComponents = new Dictionary<string, GameObject>();
     }
 
     // Start is called before the first frame update
@@ -40,6 +43,7 @@ public class Hero : MonoBehaviour
         origin = transform.localPosition;
         animator = gameObject.GetComponent<Animator>();
         agent = gameObject.GetComponent<NavMeshAgent>();
+        canvas = gameObject.GetComponentInChildren<Canvas>();
         Reset();
     }
 
@@ -69,6 +73,7 @@ public class Hero : MonoBehaviour
                 NavMeshHit navHit;
                 if (NavMesh.SamplePosition(hit.Value.point, out navHit, 1.0f, NavMesh.AllAreas))
                 {
+                    // Debug.Log($"Ray: {hit.Value.point} Nav {navHit.position}");
                     agent.SetDestination(navHit.position);
                     agent.speed = runSpeed;
                     transform.forward = navHit.position - transform.position;
@@ -125,6 +130,31 @@ public class Hero : MonoBehaviour
         {
             timer = Random.Range(1.5f, 4.5f);
             waiting = true;
+        }
+    }
+
+    public void AddUIComponent(GameObject ui)
+    {
+        if (!uiComponents.ContainsKey(ui.name))
+        {
+            var component = Instantiate(ui, Vector3.zero, Quaternion.Euler(Vector3.zero), canvas.transform);
+            component.GetComponent<RectTransform>().position = new Vector3(0, 75, 0);
+            uiComponents.Add(ui.name, component);
+        }
+    }
+
+    public void RemoveUIComponent(GameObject ui)
+    {
+        if (uiComponents.ContainsKey(ui.name))
+        {
+            var component = uiComponents[ui.name];
+            uiComponents.Remove(ui.name);
+
+            var button = component.GetComponent<Button>();
+            if (button != null)
+                button.End();
+            else
+                Destroy(component);
         }
     }
 }

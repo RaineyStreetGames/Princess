@@ -13,13 +13,13 @@ public class Door : MonoBehaviour
 {
     public DoorState state = DoorState.Open;
 
-    // Start is called before the first frame update
+    public GameObject uiObject;
+
     void Start()
     {
 
     }
 
-    // Update is called once per frame
     void Update()
     {
         switch (state)
@@ -33,6 +33,24 @@ public class Door : MonoBehaviour
             case DoorState.Cleared:
 
                 break;
+        }
+    }
+
+    private void OnTriggerEnter(Collider collider)
+    {
+        var hero = collider.gameObject.GetComponent<Hero>();
+        if (hero != null)
+        {
+            hero.AddUIComponent(uiObject);
+        }
+    }
+
+    private void OnTriggerExit(Collider collider)
+    {
+        var hero = collider.gameObject.GetComponent<Hero>();
+        if (hero != null)
+        {
+            hero.RemoveUIComponent(uiObject);
         }
     }
 }
