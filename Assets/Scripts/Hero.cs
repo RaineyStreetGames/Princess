@@ -43,7 +43,6 @@ public class Hero : MonoBehaviour
         origin = transform.localPosition;
         animator = gameObject.GetComponent<Animator>();
         agent = gameObject.GetComponent<NavMeshAgent>();
-        canvas = gameObject.GetComponentInChildren<Canvas>();
         Reset();
     }
 
@@ -137,8 +136,9 @@ public class Hero : MonoBehaviour
     {
         if (!uiComponents.ContainsKey(ui.name))
         {
-            var component = Instantiate(ui, Vector3.zero, Quaternion.Euler(Vector3.zero), canvas.transform);
-            component.GetComponent<RectTransform>().position = new Vector3(0, 75, 0);
+            var pos = new Vector3(0, canvas.GetComponent<RectTransform>().rect.height / 4, 0);
+            var component = Instantiate(ui, pos, Quaternion.Euler(Vector3.zero));
+            component.transform.SetParent(canvas.transform, false);
             uiComponents.Add(ui.name, component);
         }
     }
