@@ -38,7 +38,7 @@ public class Door : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
-        var hero = collider.gameObject.GetComponent<Hero>();
+        var hero = collider.gameObject.GetComponent<HeroUI>();
         if (hero != null)
         {
             hero.AddUIComponent(uiObject);
@@ -47,7 +47,7 @@ public class Door : MonoBehaviour
 
     private void OnTriggerExit(Collider collider)
     {
-        var hero = collider.gameObject.GetComponent<Hero>();
+        var hero = collider.gameObject.GetComponent<HeroUI>();
         if (hero != null)
         {
             hero.RemoveUIComponent(uiObject);
