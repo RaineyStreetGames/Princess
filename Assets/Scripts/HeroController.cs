@@ -29,19 +29,19 @@ public class HeroController : MonoBehaviour
     }
 
     // DEBUG
-    void OnDrawGizmos()
-    {
-        // if (Input.GetMouseButton(0))
-        // {
-        //     RaycastHit? hit = Physics.RaycastAll(Camera.main.ScreenPointToRay(Input.mousePosition), 100.0f).FirstOrDefault(x => x.transform.tag == "Terrain");
-        //     if (hit.HasValue && hit.Value.point != Vector3.zero)
-        //     {
-        //         Gizmos.DrawSphere(hit.Value.point, 0.5f);
-        //         Gizmos.DrawSphere(transform.position + ((hit.Value.point - transform.position).normalized * 3), 1.0f);
-        //         Debug.DrawLine(transform.position, hit.Value.point, Color.white, 2.0f);
-        //     }
-        // }
-    }
+    // void OnDrawGizmos()
+    // {
+    //     if (Input.GetMouseButton(0))
+    //     {
+    //         RaycastHit? hit = Physics.RaycastAll(Camera.main.ScreenPointToRay(Input.mousePosition), 100.0f).FirstOrDefault(x => x.transform.tag == "Terrain");
+    //         if (hit.HasValue && hit.Value.point != Vector3.zero)
+    //         {
+    //             Gizmos.DrawSphere(hit.Value.point, 0.5f);
+    //             Gizmos.DrawSphere(transform.position + ((hit.Value.point - transform.position).normalized * 3), 1.0f);
+    //             Debug.DrawLine(transform.position, hit.Value.point, Color.white, 2.0f);
+    //         }
+    //     }
+    // }
 
     // Update is called once per frame
     void Update()

@@ -14,10 +14,11 @@ public class Door : MonoBehaviour
     public DoorState state = DoorState.Open;
 
     public GameObject uiObject;
+    private Button button;
 
     void Start()
     {
-
+        button = uiObject.GetComponent<Button>();
     }
 
     void Update()
@@ -41,7 +42,7 @@ public class Door : MonoBehaviour
         var hero = collider.gameObject.GetComponent<HeroUI>();
         if (hero != null)
         {
-            hero.AddUIComponent(uiObject);
+            hero.AddUIComponent(name, button);
         }
     }
 
@@ -50,7 +51,7 @@ public class Door : MonoBehaviour
         var hero = collider.gameObject.GetComponent<HeroUI>();
         if (hero != null)
         {
-            hero.RemoveUIComponent(uiObject);
+            hero.RemoveUIComponent(name);
         }
     }
 }

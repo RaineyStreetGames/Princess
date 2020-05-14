@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6779397194590754600}
   - component: {fileID: 6469346149659023562}
+  - component: {fileID: -7788419047642961838}
+  - component: {fileID: 2351999402225333579}
   m_Layer: 0
   m_Name: HiddenDoor
   m_TagString: Untagged
@@ -49,6 +51,34 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 1.33, z: -0.22}
   m_TimeToStationary: 0.5
+--- !u!135 &-7788419047642961838
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3274215298326250712}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 7
+  m_Center: {x: -0.012105536, y: 0.00007415003, z: 0.0013690268}
+--- !u!114 &2351999402225333579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3274215298326250712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38494b85764584c9483f7099bc6a3168, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 0
+  uiObject: {fileID: 6282073105964272833, guid: deeaa50b90d424b9098fe665cc4d1d0d,
+    type: 3}
 --- !u!1001 &5678690024538679784
 PrefabInstance:
   m_ObjectHideFlags: 0

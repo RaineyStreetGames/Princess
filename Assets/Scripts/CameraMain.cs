@@ -13,11 +13,23 @@ public class CameraMain : MonoBehaviour
     public float smooth = 10.0f;
     private float distance;
 
+    private Vector3 lastTarget;
+    private Vector3 lastLastTarget;
+
     void Start()
     {
         offset = offset.normalized;
         distance = maxDistance;
+        lastTarget = target.transform.position;
+        lastLastTarget = target.transform.position;
     }
+
+    // DEBUG
+    // void OnDrawGizmos()
+    // {
+    //     Gizmos.DrawRay(new Ray(target.transform.position, transform.position.xz() - target.transform.position.xz()));
+    //     Gizmos.DrawRay(new Ray(target.transform.position, lastLastTarget.xz() - target.transform.position.xz()));
+    // }
 
     void LateUpdate()
     {
@@ -47,15 +59,21 @@ public class CameraMain : MonoBehaviour
             offset = Quaternion.AngleAxis(-90.0f * Time.deltaTime, Vector3.up) * offset;
         }
 
-        if (Input.GetMouseButton(0))
+        var angle = Vector3.SignedAngle(transform.position.xz() - target.transform.position.xz(), lastTarget.xz() - target.transform.position.xz(), Vector3.up);
+
+        var speed = 2f;
+        if (Mathf.Abs(angle) > 160)
         {
-            RaycastHit? tilt = Physics.RaycastAll(Camera.main.ScreenPointToRay(Input.mousePosition)).FirstOrDefault(x => x.transform.tag == "Terrain");
-            if (tilt.HasValue)
-            {
-                var playerAngle = target.transform.position - tilt.Value.point;
-                var cameraAngle = transform.position - tilt.Value.point;
-                offset = Quaternion.AngleAxis(Vector3.SignedAngle(cameraAngle, playerAngle, Vector3.up) * Time.deltaTime, Vector3.up) * offset;
-            }
+            speed = 3.5f;
         }
+        else if (Mathf.Abs(angle) > 60)
+        {
+            speed = 2.5f;
+        }
+        offset = Quaternion.AngleAxis(angle * Time.deltaTime * speed, Vector3.up) * offset;
+
+        lastLastTarget = lastTarget;
+        lastTarget = target.transform.position;
+
     }
 }
