@@ -6,10 +6,13 @@ public class Button : MonoBehaviour
     private Vector3 target;
     private Vector3 velocity = Vector3.zero;
 
+    private RectTransform rect;
+
     void Start()
     {
         canvas = GetComponent<CanvasRenderer>();
-        target = transform.position;
+        rect = GetComponent<RectTransform>();
+        target = rect.anchoredPosition;
         if (canvas != null)
         {
             canvas.transform.localScale = Vector3.zero;
@@ -21,7 +24,8 @@ public class Button : MonoBehaviour
 
     void Update()
     {
-        transform.position = Vector3.SmoothDamp(transform.position, target, ref velocity, 0.3f);
+        Debug.Log(rect.anchoredPosition3D + " " + target);
+        rect.anchoredPosition3D = Vector3.SmoothDamp(rect.anchoredPosition3D, target, ref velocity, 0.3f);
     }
 
     public void End()
@@ -35,6 +39,7 @@ public class Button : MonoBehaviour
 
     public void SetPosition(Vector3 pos)
     {
+        Debug.Log(pos);
         target = pos;
     }
 }

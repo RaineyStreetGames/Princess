@@ -9,7 +9,6 @@ public class HeroUI : MonoBehaviour
     public Canvas canvas;
     public Dictionary<string, Button> uiComponents;
 
-    public int distance = 180;
     private float width;
     private float height;
 
@@ -60,7 +59,7 @@ public class HeroUI : MonoBehaviour
         var i = 0;
         foreach (var b in uiComponents.Values)
         {
-            b.SetPosition(new Vector3(init + (distance * i), b.transform.position.y, b.transform.position.z));
+            b.SetPosition(new Vector3(init + (init * i), height / 4, 0));
             i++;
         }
 
