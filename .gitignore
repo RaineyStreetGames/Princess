@@ -3,6 +3,7 @@ Library/
 Obj/
 Builds/
 Logs/
+Assets/Editor/
  
 .vscode/
 *.csproj
