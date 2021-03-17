@@ -3,7 +3,7 @@
 public class Button : MonoBehaviour
 {
     private CanvasRenderer canvas;
-    private Vector3 target;
+    public Vector3 target;
     private Vector3 velocity = Vector3.zero;
 
     private RectTransform rect;
@@ -13,33 +13,19 @@ public class Button : MonoBehaviour
         canvas = GetComponent<CanvasRenderer>();
         rect = GetComponent<RectTransform>();
         target = rect.anchoredPosition;
-        if (canvas != null)
-        {
-            canvas.transform.localScale = Vector3.zero;
-            StartCoroutine(canvas.transform.ScaleIn(0.5f));
-            canvas.SetAlpha(0);
-            StartCoroutine(canvas.FadeIn(0.5f));
-        }
-    }
-
-    void Update()
-    {
-        Debug.Log(rect.anchoredPosition3D + " " + target);
-        rect.anchoredPosition3D = Vector3.SmoothDamp(rect.anchoredPosition3D, target, ref velocity, 0.3f);
+        canvas.SetAlpha(0);
+        StartCoroutine(canvas.FadeIn(0.25f));
     }
 
     public void End()
     {
-        Destroy(gameObject, 0.5f);
-        // StartCoroutine(transform.ScaleOut(0.5f));
-        var renderer = GetComponent<CanvasRenderer>();
-        if (renderer != null)
-            StartCoroutine(renderer.FadeOut(0.5f));
+        Destroy(gameObject, 0.25f);
+        StartCoroutine(canvas.FadeOut(0.25f));
     }
 
     public void SetPosition(Vector3 pos)
     {
-        Debug.Log(pos);
         target = pos;
+        StartCoroutine(rect.DelayUpdatePosition(0.5f, pos));
     }
 }

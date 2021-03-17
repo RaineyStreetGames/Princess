@@ -7,61 +7,53 @@ using UnityEngine.AI;
 public class HeroUI : MonoBehaviour
 {
     public Canvas canvas;
-    public Dictionary<string, Button> uiComponents;
-
-    private float width;
-    private float height;
-
-
+    public List<(string, Button)> uiComponents;
+    private List<float> indexes;
+    public float y = 32;
 
     // Start is called before the first frame update
     void Start()
     {
-        uiComponents = new Dictionary<string, Button>();
-        width = canvas.GetComponent<RectTransform>().rect.width;
-        height = canvas.GetComponent<RectTransform>().rect.height;
+        uiComponents = new List<(string, Button)>();
+        indexes = new List<float>() { 217, 290, 358, 430, 502, 572 };
     }
 
     public void AddUIComponent(string name, Button ui)
     {
-        if (!uiComponents.ContainsKey(name))
+        if (!uiComponents.Exists(x => x.Item1 == name))
         {
-            Debug.Log("AddUIComponent " + name);
-            var pos = new Vector3(width / 2, height / 4, 0);
-            var component = Instantiate(ui, pos, Quaternion.Euler(Vector3.zero));
-            component.transform.SetParent(canvas.transform, false);
-            uiComponents.Add(name, component);
-            rearrangeButtons();
+            if (uiComponents.Count < indexes.Count)
+            {
+                var x = indexes[uiComponents.Count];
+                // Debug.Log("AddUIComponent " + name);
+                var pos = new Vector3(x, y, 0);
+                var component = Instantiate(ui, pos, Quaternion.Euler(Vector3.zero));
+                component.transform.SetParent(canvas.transform, false);
+                component.transform.SetSiblingIndex(1);
+                uiComponents.Add((name, component));
+            }
         }
     }
 
     public void RemoveUIComponent(string name)
     {
-        if (uiComponents.ContainsKey(name))
+        if (uiComponents.Exists(x => x.Item1 == name))
         {
-            Debug.Log("RemoveUIComponent " + name);
-            var component = uiComponents[name];
-            uiComponents.Remove(name);
+            // Debug.Log("RemoveUIComponent " + name);
+            var index = uiComponents.FindIndex(x => x.Item1 == name);
+            if (index >= 0)
+            {
+                var (_, component) = uiComponents[index];
+                component.End();
+                uiComponents.RemoveAt(index);
 
-            var button = component.GetComponent<Button>();
-            if (button != null)
-                button.End();
-            else
-                Destroy(component);
-
-            rearrangeButtons();
+                for (int i = index; i < uiComponents.Count; i++)
+                {
+                    var (n, c) = uiComponents[i];
+                    // Debug.Log("MovingUIComponent " + n);
+                    c.SetPosition(new Vector3(indexes[i], y, 0));
+                }
+            }
         }
-    }
-
-    private void rearrangeButtons()
-    {
-        var init = width / (uiComponents.Count() + 1);
-        var i = 0;
-        foreach (var b in uiComponents.Values)
-        {
-            b.SetPosition(new Vector3(init + (init * i), height / 4, 0));
-            i++;
-        }
-
     }
 }

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.EventSystems;
 
 public class HeroController : MonoBehaviour
 {
@@ -43,11 +44,10 @@ public class HeroController : MonoBehaviour
     //     }
     // }
 
-    // Update is called once per frame
     void Update()
     {
         // Mouse Drag Event
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && !EventSystem.current.IsPointerOverGameObject())
         {
             RaycastHit? hit = Physics.RaycastAll(Camera.main.ScreenPointToRay(Input.mousePosition), 100.0f).FirstOrDefault(x => x.transform.tag == "Terrain");
             if (hit.HasValue && hit.Value.point != Vector3.zero)

@@ -20,4 +20,11 @@ public static class TransformActions
             yield return null;
         }
     }
+
+    public static IEnumerator DelayUpdatePosition(this RectTransform transform, float delayTime, Vector3 pos)
+    {
+        yield return new WaitForSeconds(delayTime);
+
+        transform.anchoredPosition3D = pos;
+    }
 }
