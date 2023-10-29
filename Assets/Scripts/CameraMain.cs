@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class CameraMain : MonoBehaviour
 {
@@ -49,12 +50,12 @@ public class CameraMain : MonoBehaviour
         transform.LookAt(new Vector3(target.transform.position.x, target.transform.position.y + up, target.transform.position.z));
 
         // Rotate camera.
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Keyboard.current.leftArrowKey.isPressed)
         {
             offset = Quaternion.AngleAxis(90.0f * Time.deltaTime, Vector3.up) * offset;
         }
 
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Keyboard.current.rightArrowKey.isPressed)
         {
             offset = Quaternion.AngleAxis(-90.0f * Time.deltaTime, Vector3.up) * offset;
         }
